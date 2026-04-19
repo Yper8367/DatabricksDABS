@@ -15,6 +15,11 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
 
+      - name: Debug Databricks Config
+        run: |
+          echo "Host: $DATABRICKS_HOST"
+          echo "Client ID length: ${#DATABRICKS_CLIENT_ID}"
+
       - name: Validate bundle
         run: databricks bundle validate -t dev
         env:
